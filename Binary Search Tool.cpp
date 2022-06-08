@@ -26,15 +26,20 @@ int main() {
 	low = 0;
 	high = numElements - 1;
 	while(low <= high) {
+		// Calculate midpoint
 		mid = (high + low) / 2;
 		if(nums[mid] < searchValue) {
+			// Change low point to 1 index greater than midpoint if value at midpoint is less than search value
 			low = mid + 1;
 		} else if(nums[mid] > searchValue) {
+			// Change high point to 1 index less than midpoint if value at midpoint is more than search value
 			high = mid - 1;
 		} else {
 			cout << searchValue << " was found at index " << mid << "." << endl;
+			// End program if search value is found in array
 			return 0;
 		}
 	}
+	// Only output message below if search value is not found in array
 	cout << searchValue << " was not found in the array." << endl;
 }
